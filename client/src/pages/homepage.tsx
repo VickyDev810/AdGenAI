@@ -1,16 +1,16 @@
-
 function HomePage() {
     return (
-        <div className="flex h-screen bg-cover bg-center" style={{ backgroundImage: "url('/path/to/techy-image.jpg')" }}>
+        <div className="flex h-screen bg-slate-400">
             <div className="w-1/2 p-10">
-                <h1 className="text-2xl font-bold mb-5">Generate ads here</h1>
+                <h1 className="text-4xl font-extrabold text-white mb-5">Summer Jams Concert Series</h1>
                 <input
                     type="text"
-                    className="border border-gray-300 rounded-lg p-4 w-full mb-4"
+                    className="border border-white rounded-lg p-4 w-full mb-4 bg-white"
                     placeholder="Enter your prompt"
                 />
                 <div className="flex items-center mb-4">
-                    <button className="bg-blue-500 text-white rounded-lg p-2 mr-2">
+                    <button className="bg-blue-600 text-white rounded-lg p-2 mr-2 hover:bg-blue-700">
+                        <i className="fas fa-paperclip"></i> {/* Attachment icon */}
                         <i className="fas fa-paperclip"></i> {/* Attachment icon */}
                     </button>
                     <button className="bg-green-500 text-white rounded-lg p-2">
