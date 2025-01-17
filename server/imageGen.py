@@ -1,22 +1,23 @@
+
 import os
 import httpx
-from azure.identity import DefaultAzureCredential
 from openai import AzureOpenAI
 from PIL import Image
-import json
+from dotenv import load_dotenv
 
-credential = DefaultAzureCredential()
+load_dotenv()
+
 client = AzureOpenAI(
     api_version="2024-02-01",
-    azure_endpoint=os.environ['AZURE_OPENAI_ENDPOINT'],
-    credential=credential
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),
+    azure_endpoint=os.getenv('AZURE_OPENAI_ENDPOINT_IMAGES')
 )
 
 result = client.images.generate(
     model="dalle3", # the name of your DALL-E 3 deployment
-    prompt="an billboard advertisement for the keyboard black body, write functions in english language one corner of a plain white background 1. function is rgb lighting, 2. is mechincal keyboard, 3. is sounds and add the company name in one corner",
+    prompt="an billboard advertisement for the keyboard black body, write functions in english language one corner of a plain white background 1. function is rgb lighting, 2. is mechincal keyboard, 3. is sounds and add the company name in one corner ",
     n=1
-)
+ )
 
 # Set the directory for the stored image
 image_dir = os.path.join(os.curdir, 'images')
@@ -29,10 +30,8 @@ if not os.path.isdir(image_dir):
 image_path = os.path.join(image_dir, 'generated_image.png')
 
 # Retrieve the generated image
-json_response = json.loads(result.model_dump_json())
-image_url = json_response["data"][0]["url"]  # extract image URL from response
+image_url = result.data[0].url  # extract image URL from response
 generated_image = httpx.get(image_url).content  # download the image
-
 with open(image_path, "wb") as image_file:
     image_file.write(generated_image)
 

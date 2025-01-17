@@ -8,6 +8,7 @@ client/pnpm-debug.log*
 client/lerna-debug.log*
 
 # Dependencies
+node_modules
 client/node_modules
 client/dist
 client/dist-ssr
@@ -24,6 +25,10 @@ client/*.njsproj
 client/*.sln
 client/*.sw?
 
+#images_Folder
+server/images
 
+#server Files
 server/.env
 server/.env.local
+server/imageGen.py
