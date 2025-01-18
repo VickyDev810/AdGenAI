@@ -1,11 +1,4 @@
-// src/services/apiService.ts
-
-interface GenerateAdResponse {
-    advertisement?: string;
-    error?: string;
-}
-
-export const generateAdPrompt = async (textInput: string, image: string | null): Promise<GenerateAdResponse> => {
+export const generateAdPrompt = async (textInput: string, image: string | null): Promise<{ advertisement?: string; error?: string }> => {
     try {
         const response = await fetch('http://localhost:5000/generate_ad', {
             method: 'POST',
@@ -16,14 +9,15 @@ export const generateAdPrompt = async (textInput: string, image: string | null):
         });
 
         const data = await response.json();
+        console.log('API Response:', data); // Log the API response
 
         if (data.advertisement) {
-            return { advertisement: data.advertisement };  // Return the generated advertisement
+            return { advertisement: data.advertisement };
         } else {
-            return { error: data.error };  // Return error if present
+            return { error: data.error || 'Unknown error occurred' };
         }
     } catch (error) {
-        console.error('Error connecting to the backend:', error);
+        console.error('Error in API call:', error);
         return { error: 'An error occurred while generating the ad prompt.' };
     }
 };
