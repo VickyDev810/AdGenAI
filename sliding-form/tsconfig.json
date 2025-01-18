@@ -1,0 +1,16 @@
+sliding-form
+├── src
+│   ├── components
+│   │   ├── SlidingForm
+│   │   │   ├── index.tsx
+│   │   │   ├── FormSlide.tsx
+│   │   │   └── types.ts
+│   │   └── Button
+│   │       └── index.tsx
+│   ├── hooks
+│   │   └── useFormSlider.ts
+│   └── utils
+│       └── validation.ts
+├── package.json
+├── tsconfig.json
+└── README.md
