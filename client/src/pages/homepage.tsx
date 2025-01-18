@@ -30,13 +30,18 @@ function HomePage() {
             <div className="flex-grow flex">
             <div className="w-[40%] p-10 bg-footer flex flex-col justify-center">
                 <h1 className="text-4xl font-bold mb-5 text-center">Create Images</h1>
-                <div className='flex w-full h-56 border border-blue rounded-lg mb-4 mt-4'>
-                    <div className="relative w-full">
-                        <input
-                            type="text"
-                            className=" rounded-lg h-56 pl-14 w-full mb-4 "
-                            placeholder="Enter your prompt"
-                        />
+                <div className='flex w-full h-fit border border-blue rounded-lg mb-4 mt-4 '>
+               
+                    <div className="relative w-full h-56 bg-white rounded-lg">
+                    <textarea 
+                    class=" rounded-lg  px-8 w-full h-[70%] pt-5 text-xl border-none outline-none scroll-smooth overflow-auto scrollbar-hide " 
+                    rows="3" 
+                    placeholder="Enter prompt"
+                    
+                    >
+
+                    </textarea>
+
                         
                         <button className="absolute top-40 left-2  text-white rounded-full p-2 flex justify-center">
                             <img src="bulb.png" alt="Icon" className="h-10 w-10" />
