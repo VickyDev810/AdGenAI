@@ -28,13 +28,13 @@ function HomePage() {
         <div className="flex flex-col h-screen" style={{ fontFamily: 'Poppins' }}>
             <Header />
             <div className="flex-grow flex">
-            <div className="w-[40%] p-10 bg-footer flex flex-col justify-center">
-                <h1 className="text-4xl font-bold mb-5 text-center">Create Images</h1>
-                <div className='flex w-full h-fit border border-blue rounded-lg mb-4 mt-4 '>
+            <div className="w-[40%] px-10 bg-footer flex flex-col justify-center items-start">
+                <h1 className="text-2xl font-bold mb-1 text-center">Create Personalized Ads</h1>
+                <div className='flex w-full h-fit border border-blue rounded-lg mb-4 mt-1 '>
                
                     <div className="relative w-full h-56 bg-white rounded-lg">
                     <textarea 
-                    class=" rounded-lg  px-8 w-full h-[70%] pt-5 text-xl border-none outline-none scroll-smooth overflow-auto scrollbar-hide " 
+                    class=" rounded-lg  px-8 w-full h-[70%] pt-5 text-xl border-none outline-none scroll-smooth overflow-auto scrollbar-hide resize-none" 
                     rows="3" 
                     placeholder="Enter prompt"
                     
@@ -50,7 +50,7 @@ function HomePage() {
                 </div>
 
                     <button className="flex gap-3 bg-violet text-white rounded-lg p-5 mb-10 justify-center">
-                        Generate
+                        Quick Generate
                         <img src="arrow.png" className="h-5 w-5" />
                     </button>
                     <div className="flex justify-center mb-4 w-full">
