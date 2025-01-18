@@ -3,12 +3,16 @@ import httpx
 from openai import AzureOpenAI
 from dotenv import load_dotenv
 from flask import Flask, jsonify, request
+from flask_cors import CORS  # Import CORS
 
 # Load environment variables
 load_dotenv()
 
 # Initialize Flask app
 app = Flask(__name__)
+
+# Enable CORS for all routes
+CORS(app)
 
 # Initialize the Azure OpenAI client
 client = AzureOpenAI(
@@ -45,4 +49,4 @@ def generate_image():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5001)  # Change port to 5001

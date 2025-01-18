@@ -108,7 +108,7 @@ function HomePage() {
                     </div>
 
                 {/* Right Section */}
-                <div className="w-[60%] p-10 bg-gray-200 overflow-hidden relative">
+                <div className="w-[60%] bg-heropattern  p-10 bg-gray-200 overflow-hidden relative">
                     {loading ? (
                         <p>Loading...</p> // Show loading text while generating the image
                     ) : generatedImage ? (
