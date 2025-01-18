@@ -27,6 +27,7 @@ client/*.ntvs*
 client/*.njsproj
 client/*.sln
 client/*.sw?
+client/.env
 
 #images_Folder
 server/images

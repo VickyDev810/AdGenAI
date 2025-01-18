@@ -18,5 +18,8 @@ export default {
       footer: '#fcfcfc',
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide'),
+
+  ],
 }
