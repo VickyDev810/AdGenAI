@@ -59,7 +59,7 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ questions, aspectRatios, 
                 >
                     {index === 0 ? (
                         <>
-                            <h2 className="text-2xl font-bold mb-6">{question}</h2>
+                            <h2 className="text-3xl text-white font-extrabold mb-6">{question}</h2>
                             <div className="grid grid-cols-3 gap-4">
                                 {aspectRatios.map((ratio) => (
                                     <button
@@ -75,7 +75,7 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ questions, aspectRatios, 
                         </>
                     ) : index === 1 || index === 2 ? (
                         <>
-                            <h2 className="text-2xl font-bold mb-4">{question}</h2>
+                            <h2 className="text-3xl text-white font-extrabold mb-6">{question}</h2>
                             <input
                                 type="text"
                                 className="border border-gray rounded-lg p-3 w-3/4 mb-4"
@@ -100,7 +100,7 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ questions, aspectRatios, 
                         </>
                     ) : (
                         <>
-                            <h2 className="text-2xl font-bold mb-6">{question}</h2>
+                            <h2 className="text-3xl text-white font-extrabold mb-6">{question}</h2>
                             <div className="mb-4 flex w-full justify-center">
                                 <input
                                     type="text"
@@ -125,7 +125,7 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ questions, aspectRatios, 
                                             key={idx}
                                             src={image}
                                             alt="Stock"
-                                            className="w-full h-40 object-cover rounded-lg cursor-pointer hover:opacity-75 transition"
+                                            className="w-full h-28 object-cover rounded-lg cursor-pointer hover:opacity-80 hover:shadow-xl transition" 
                                             onClick={() => handleNext(image)}
                                         />
                                     ))}

@@ -49,8 +49,8 @@ function HomePage() {
         <div className="flex flex-col h-screen" style={{ fontFamily: 'Poppins' }}>
             <Header />
             <div className="flex-grow flex">
-                <div className="w-[40%] px-10 bg-footer flex flex-col justify-center items-start">
-                    <h1 className="text-2xl font-bold mb-1 text-center">Create Personalized Ads</h1>
+                <div className="w-[40%] px-10 flex flex-col justify-center items-start drop-shadow-[0_2px_5px_rgba(0,0,0,0.1)]">
+                    <h1 className="text-violet text-3xl font-extrabold mb-1 text-center">CREATE PERSONALIZED ADS</h1>
                     <div className="flex w-full h-fit border border-blue rounded-lg mb-4 mt-1 ">
                         <div className="relative w-full h-56 bg-white rounded-lg">
                             <textarea
@@ -72,23 +72,23 @@ function HomePage() {
                         
                     </div>
                     {/* buttons */}
-                    <button className="flex gap-3 bg-violet text-white rounded-lg p-5 mb-10 justify-center">
+                    <button className="flex gap-3 bg-buttonpurple hover:bg-buttonpurplehover text-white rounded-lg p-5 mb-10 justify-center">
                         Quick Generate
                         <img src="arrow.png" className="h-5 w-5" />
                     </button>
                    
                    
                     <div className="flex justify-center mb-4 w-full">
-                        <button className="bg-signinpurple rounded-lg p-2 mx-2 text-white w-full h-20">
+                        <button className="bg-buttonblue hover:bg-buttonbluehover rounded-lg p-2 mx-2 text-white w-full h-20">
                             Text to Image
                         </button>
-                        <button className="bg-signinpurple rounded-lg p-2 mx-2 text-white w-full h-20">
+                        <button className="bg-buttonblue hover:bg-buttonbluehover rounded-lg p-2 mx-2 text-white w-full h-20">
                             Image to Image
                         </button>
                     </div>
                     </div>
 
-                <div className="w-[60%] p-10 bg-gray-200 overflow-hidden relative">
+                <div className="w-[60%] bg-heropattern  bg-fixed  bg-no-repeat rounded-l-3xl p-0 overflow-hidden relative">
                     <Questionnaire
                         questions={questions}
                         aspectRatios={aspectRatios}
