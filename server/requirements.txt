@@ -1,0 +1,10 @@
+azure-identity
+openai
+httpx
+os
+PIL
+json
+python-dotenv
+
+
+
