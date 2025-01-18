@@ -1,0 +1,112 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f7fc;
+  }
+  
+  .content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Center align content inside */
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 2rem;
+    color: #2d3e50;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  /* Input and Label Styling */
+  .input-group {
+    margin-bottom: 20px;
+    width: 100%;  /* Ensure inputs take full width */
+  }
+  
+  .input-label {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+  }
+  
+  .input-field:focus {
+    border-color: #4e8ef7;
+    box-shadow: 0 0 5px rgba(78, 142, 247, 0.4);
+  }
+  
+  /* Button Styling */
+  .submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4e8ef7;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-button:hover {
+    background-color: #3b7fe6;
+  }
+  
+  .submit-button:disabled {
+    background-color: #a7b5e3;
+    cursor: not-allowed;
+  }
+  
+  /* Error Message Styling */
+  .error-message {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  /* Video Styling */
+  .video-container {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;  /* Center the video */
+    text-align: center;
+  }
+  
+  .video {
+    width: 100%;
+    max-width: 600px;  /* Restrict video size */
+  }
+  
