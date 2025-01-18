@@ -16,12 +16,11 @@ function HomePage() {
         'Do you want a specific reference stock image?',
     ];
 
-    const aspectRatios = ['16:9', '9:16', '4:3', '1:1', '3:2', '1:2', '2:1', '5:3'];
+    const aspectRatios = ['16:9', '9:16', '4:3', '1:1', '3:2', '1:2', '2:1', '5:3',"12:6"];
 
     // State for user input and GPT prompt output
     const [userInput, setUserInput] = useState('');
     const [generatedPrompt, setGeneratedPrompt] = useState('');
-    const aspectRatios = ['16:9', '9:16', '4:3', '1:1', '3:2', '1:2', '2:1', '5:3','12:6'];
 
     const fetchImages = async (query: string) => {
         const response = await fetch(
@@ -68,29 +67,11 @@ function HomePage() {
                             >
                                 <img src="bulb.png" alt="Icon" className="h-10 w-10" />
                             </button>
+                            
                         </div>
-                    </div>
-            <div className="w-[40%] p-10 bg-footer flex flex-col justify-center">
-                <h1 className="text-4xl font-bold mb-5 text-center">Create Images</h1>
-
-
-                {/*this is input div */}
-                <div className='flex w-full h-fit border border-blue rounded-lg mb-5 mt-4'>
-                    <div className="relative w-full">
-                        <input
-                            type="text"
-                            className=" rounded-lg h-56 pl-14 w-full mb-4"
-                            placeholder="Enter your prompt"
-                        />
                         
-                        <button className="absolute top-40 left-2  text-white rounded-full p-2 flex justify-center">
-                            <img src="bulb.png" alt="Icon" className="h-10 w-10" />
-                        </button>
                     </div>
-                </div>
-
-
-                {/* buttons */}
+                    {/* buttons */}
                     <button className="flex gap-3 bg-violet text-white rounded-lg p-5 mb-10 justify-center">
                         Quick Generate
                         <img src="arrow.png" className="h-5 w-5" />
@@ -105,8 +86,7 @@ function HomePage() {
                             Image to Image
                         </button>
                     </div>
-                
-                </div>
+                    </div>
 
                 <div className="w-[60%] p-10 bg-gray-200 overflow-hidden relative">
                     <Questionnaire
@@ -116,8 +96,8 @@ function HomePage() {
                         fetchImages={fetchImages}
                     />
                 </div>
-            </div>
-            <Footer />
+            
+            
 
             {/* Display the generated prompt (Optional) */}
             {generatedPrompt && (
@@ -126,6 +106,8 @@ function HomePage() {
                     <p>{generatedPrompt}</p>
                 </div>
             )}
+        </div>
+        <Footer />
         </div>
     );
 }
