@@ -189,7 +189,7 @@ function HomePage() {
                                         )}
                                         <button
                                             onClick={handleSkip}
-                                            className="bg-gray-500 text-white px-6 py-2 rounded-lg mt-4"
+                                            className=" text-white px-6 py-2 rounded-lg mt-4"
                                         >
                                             Skip
                                         </button>
