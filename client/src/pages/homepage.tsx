@@ -1,16 +1,18 @@
-import { useState } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import Questionnaire from '../components/QuestionComponent';
+
+
 
 function HomePage() {
     const questions = [
         'What is your desired aspect ratio?',
         'What sector does your image belong to?',
+        'What is the targer age group?',
         'Do you want a specific reference stock image?',
     ];
 
-    const aspectRatios = ['16:9', '9:16', '4:3', '1:1', '3:2', '1:2', '2:1', '5:3'];
+    const aspectRatios = ['16:9', '9:16', '4:3', '1:1', '3:2', '1:2', '2:1', '5:3','12:6'];
 
     const fetchImages = async (query: string) => {
         const response = await fetch(
@@ -21,7 +23,7 @@ function HomePage() {
     };
 
     const handleComplete = (answers: string[]) => {
-        console.log('Completed Answers:', answers);
+        console.log('All Answers:', answers);
     };
 
     return (
@@ -30,11 +32,14 @@ function HomePage() {
             <div className="flex-grow flex">
             <div className="w-[40%] p-10 bg-footer flex flex-col justify-center">
                 <h1 className="text-4xl font-bold mb-5 text-center">Create Images</h1>
-                <div className='flex w-full h-56 border border-blue rounded-lg mb-4 mt-4'>
+
+
+                {/*this is input div */}
+                <div className='flex w-full h-fit border border-blue rounded-lg mb-5 mt-4'>
                     <div className="relative w-full">
                         <input
                             type="text"
-                            className=" rounded-lg h-56 pl-14 w-full mb-4 "
+                            className=" rounded-lg h-56 pl-14 w-full mb-4"
                             placeholder="Enter your prompt"
                         />
                         
@@ -44,10 +49,14 @@ function HomePage() {
                     </div>
                 </div>
 
+
+                {/* buttons */}
                     <button className="flex gap-3 bg-violet text-white rounded-lg p-5 mb-10 justify-center">
                         Generate
                         <img src="arrow.png" className="h-5 w-5" />
                     </button>
+                   
+                   
                     <div className="flex justify-center mb-4 w-full">
                         <button className="bg-signinpurple rounded-lg p-2 mx-2 text-white w-full h-20">
                             Text to Image
@@ -56,6 +65,7 @@ function HomePage() {
                             Image to Image
                         </button>
                     </div>
+                
                 </div>
                 <div className="w-[60%] p-10 bg-gray-200 overflow-hidden relative">
                     <Questionnaire
