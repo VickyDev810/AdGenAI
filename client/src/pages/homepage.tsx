@@ -1,7 +1,10 @@
+// src/pages/HomePage.tsx
+
 import { useState } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import Questionnaire from '../components/QuestionComponent';
+import { generateAdPrompt } from '../components/services';  // Import the service
 
 function HomePage() {
     const questions = [
@@ -11,6 +14,10 @@ function HomePage() {
     ];
 
     const aspectRatios = ['16:9', '9:16', '4:3', '1:1', '3:2', '1:2', '2:1', '5:3'];
+
+    // State for user input and GPT prompt output
+    const [userInput, setUserInput] = useState('');
+    const [generatedPrompt, setGeneratedPrompt] = useState('');
 
     const fetchImages = async (query: string) => {
         const response = await fetch(
@@ -24,30 +31,41 @@ function HomePage() {
         console.log('Completed Answers:', answers);
     };
 
+    // Function to call the generateAdPrompt from the service
+    const generatePrompt = async () => {
+        const { advertisement, error } = await generateAdPrompt(userInput, null);
+
+        if (advertisement) {
+            setGeneratedPrompt(advertisement);  // Update state with generated prompt
+        } else {
+            console.error('Error generating prompt:', error);
+        }
+    };
+
     return (
         <div className="flex flex-col h-screen" style={{ fontFamily: 'Poppins' }}>
             <Header />
             <div className="flex-grow flex">
-            <div className="w-[40%] px-10 bg-footer flex flex-col justify-center items-start">
-                <h1 className="text-2xl font-bold mb-1 text-center">Create Personalized Ads</h1>
-                <div className='flex w-full h-fit border border-blue rounded-lg mb-4 mt-1 '>
-               
-                    <div className="relative w-full h-56 bg-white rounded-lg">
-                    <textarea 
-                    class=" rounded-lg  px-8 w-full h-[70%] pt-5 text-xl border-none outline-none scroll-smooth overflow-auto scrollbar-hide resize-none" 
-                    rows="3" 
-                    placeholder="Enter prompt"
-                    
-                    >
+                <div className="w-[40%] px-10 bg-footer flex flex-col justify-center items-start">
+                    <h1 className="text-2xl font-bold mb-1 text-center">Create Personalized Ads</h1>
+                    <div className="flex w-full h-fit border border-blue rounded-lg mb-4 mt-1 ">
+                        <div className="relative w-full h-56 bg-white rounded-lg">
+                            <textarea
+                                className="rounded-lg px-8 w-full h-[70%] pt-5 text-xl border-none outline-none scroll-smooth overflow-auto scrollbar-hide resize-none"
+                                rows={3}
+                                placeholder="Enter prompt"
+                                value={userInput}
+                                onChange={(e) => setUserInput(e.target.value)}  // Update state on input change
+                            />
 
-                    </textarea>
-
-                        
-                        <button className="absolute top-40 left-2  text-white rounded-full p-2 flex justify-center">
-                            <img src="bulb.png" alt="Icon" className="h-10 w-10" />
-                        </button>
+                            <button
+                                className="absolute top-40 left-2 text-white rounded-full p-2 flex justify-center"
+                                onClick={generatePrompt}  // Call generatePrompt when clicked
+                            >
+                                <img src="bulb.png" alt="Icon" className="h-10 w-10" />
+                            </button>
+                        </div>
                     </div>
-                </div>
 
                     <button className="flex gap-3 bg-violet text-white rounded-lg p-5 mb-10 justify-center">
                         Quick Generate
@@ -62,6 +80,7 @@ function HomePage() {
                         </button>
                     </div>
                 </div>
+
                 <div className="w-[60%] p-10 bg-gray-200 overflow-hidden relative">
                     <Questionnaire
                         questions={questions}
@@ -72,6 +91,14 @@ function HomePage() {
                 </div>
             </div>
             <Footer />
+
+            {/* Display the generated prompt (Optional) */}
+            {generatedPrompt && (
+                <div className="mt-4 p-4 bg-gray-100 rounded-lg">
+                    <h3 className="font-bold text-xl">Generated Advertisement Prompt:</h3>
+                    <p>{generatedPrompt}</p>
+                </div>
+            )}
         </div>
     );
 }

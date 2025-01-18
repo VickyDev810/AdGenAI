@@ -55,7 +55,7 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ questions, aspectRatios, 
                     {index === 0 ? (
                         <>
                             <h2 className="text-2xl font-bold mb-6">{question}</h2>
-                            <div className="grid grid-cols-4 gap-4">
+                            <div className="grid grid-cols-3 gap-4">
                                 {aspectRatios.map((ratio) => (
                                     <button
                                         key={ratio}
