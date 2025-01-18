@@ -9,17 +9,22 @@ interface QuestionnaireProps {
 
 const Questionnaire: React.FC<QuestionnaireProps> = ({ questions, aspectRatios, onComplete, fetchImages }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [answers, setAnswers] = useState<string[]>([]);
+    const [answers, setAnswers] = useState<string[]>(Array(questions.length).fill(''));
     const [searchQuery, setSearchQuery] = useState('');
     const [images, setImages] = useState<string[]>([]);
     const [loading, setLoading] = useState(false);
 
     const handleNext = (answer: string) => {
-        setAnswers((prev) => [...prev, answer]);
+        setAnswers((prev) => {
+            const updatedAnswers = [...prev];
+            updatedAnswers[currentQuestion] = answer;
+            return updatedAnswers;
+        });
+
         if (currentQuestion + 1 < questions.length) {
             setCurrentQuestion((prev) => prev + 1);
         } else {
-            onComplete([...answers, answer]);
+            onComplete(answers);
         }
     };
 
@@ -68,7 +73,7 @@ const Questionnaire: React.FC<QuestionnaireProps> = ({ questions, aspectRatios, 
                                 ))}
                             </div>
                         </>
-                    ) : index === 1 ? (
+                    ) : index === 1 || index === 2 ? (
                         <>
                             <h2 className="text-2xl font-bold mb-4">{question}</h2>
                             <input

@@ -5,14 +5,17 @@ import Questionnaire from '../components/QuestionComponent';
 import { generateAdPrompt } from '../components/services';  // Import the service for generating prompt
 import { generateImage } from '../components/apiServiceImage'; // Import the image generation service
 
+
+
 function HomePage() {
     const questions = [
         'What is your desired aspect ratio?',
         'What sector does your image belong to?',
+        'What is the targer age group?',
         'Do you want a specific reference stock image?',
     ];
 
-    const aspectRatios = ['16:9', '9:16', '4:3', '1:1', '3:2', '1:2', '2:1', '5:3'];
+    const aspectRatios = ['16:9', '9:16', '4:3', '1:1', '3:2', '1:2', '2:1', '5:3',"12:6"];
 
     // State for user input, generated prompt, image URL, and loading state
     const [userInput, setUserInput] = useState('');
@@ -29,7 +32,7 @@ function HomePage() {
     };
 
     const handleComplete = (answers: string[]) => {
-        console.log('Completed Answers:', answers);
+        console.log('All Answers:', answers);
     };
 
     // Function to handle prompt generation (on bulb icon click)
@@ -82,7 +85,9 @@ function HomePage() {
                             >
                                 <img src="bulb.png" alt="Icon" className="h-10 w-10" />
                             </button>
+                            
                         </div>
+                        
                     </div>
 
                     <button
@@ -101,7 +106,7 @@ function HomePage() {
                             Image to Image
                         </button>
                     </div>
-                </div>
+                    </div>
 
                 {/* Right Section */}
                 <div className="w-[60%] p-10 bg-gray-200 overflow-hidden relative">
@@ -123,6 +128,8 @@ function HomePage() {
                 </div>
             </div>
             <Footer />
+
+
         </div>
     );
 }
