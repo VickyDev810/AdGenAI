@@ -33,7 +33,7 @@ The **Creative Ad Generator** is a powerful web application designed to automate
 1. **Text Generation**: Users input a brief description or context for their ad, and GPT-4 generates the corresponding text.
 2. **Image Generation**: The generated text is then used to create an image with DALL-E based on the provided description.
 3. **Video Generation**: For more dynamic ads, the text and images are used to create a short video using Runway ML.
-4. **Final Output**: The app compiles the generated text, image, and video into a unified advertisement for the user to download or share.
+4. **Final Output**: The app compiles the generated text, image, and Video into a unified advertisement for the user to download or share.
 
 ## Acknowledgments
 
